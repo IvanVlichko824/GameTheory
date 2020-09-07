@@ -145,7 +145,8 @@ template <typename T> void FindMtx(T** tobr_matr, int n)
 }
 
 //Умножение обратной матрицы на вектор u, нахождение y* и цены игры 
-template <typename T> void FindMty(T** tobr_matr, int n) { 
+template <typename T> void FindMty(T** tobr_matr, int n)
+{ 
 
 	vector<float> res; 
 	for (int i = 0; i < n; i++) 
@@ -183,13 +184,16 @@ template <typename T> void FindMty(T** tobr_matr, int n) {
 
 	cout << "y* = (";
 
-	for (int i = 0; i < n; i++) { cout << res[i] / temp; 
-	if (i != n - 1) cout << ", ";
+	for (int i = 0; i < n; i++)
+	{ 
+		cout << res[i] / temp; 
+		if (i != n - 1) 
+			cout << ", ";
 	} 
 	cout << ") " << endl;
 	cout << "v = ";
 	cout << 1 / temp;
-	}
+}
 
 //Функция нахождения максимального выигрыша игрока А и выбора последующей из этого стратегии
 int FindMax(vector<int> x, int A)
@@ -205,7 +209,8 @@ int FindMax(vector<int> x, int A)
 	if (c == x.size())
 		return A;
 
-	c = INT_MIN; int n;
+	c = INT_MIN;
+	int n;
 
 	for (int i = 0; i < x.size(); i++) {
 		if (x[i] > c) {
@@ -225,7 +230,8 @@ int FindMin(vector<int> x, int A)
 	{  
 		if (x[i] == z) c++; 
 	}
-	if (c == x.size()) return A;
+	if (c == x.size()) 
+		return A;
 
 	c = INT_MAX; int n;
 	for (int i = 0; i < x.size(); i++)
@@ -300,7 +306,8 @@ void main()
 			}
 		}
 	}
-	else cout << "Определитель матрицы равен 0 => матрица является вырожденной и обратной нет" << endl;
+	else 
+		cout << "Определитель матрицы равен 0 => матрица является вырожденной и обратной нет" << endl;
 
 	//Транспонирование матрицы 
 	TransponMtx(obr_matr, tobr_matr, n);
@@ -319,19 +326,30 @@ void main()
 	int k, A, B;
 	A = 0;
 	B = 0;
-	vector<int> x; for (int i = 0; i < n; i++) x.push_back(matr[i][A]);  
-	vector<int> y; for (int i = 0; i < n; i++) y.push_back(matr[B][i]); 
+	vector<int> x;
+	for (int i = 0; i < n; i++)
+		x.push_back(matr[i][A]); 
+
+	vector<int> y; 
+	for (int i = 0; i < n; i++)
+		y.push_back(matr[B][i]); 
+
 	int x1, x2, x3, y1, y2, y3;
 
 	//В качестве счетчика итераций / знаменатель для столбцов пороговых значений  
 	k = 2; 
-	vector<int> cx; vector<int> cy; //Вектора-счетчики - сколько раз применили ту или иную стратегию 
-	for (int i = 0; i < n; i++) {
-		cx.push_back(0);         cy.push_back(0);
-	}
-	cx[0]++; cy[0]++;
+	vector<int> cx;//Вектора-счетчики - сколько раз применили ту или иную стратегию
+	vector<int> cy;  
 
-	vector<double> delX; vector<double> delY;
+	for (int i = 0; i < n; i++) {
+		cx.push_back(0);        
+		cy.push_back(0);
+	}
+	cx[0]++;
+	cy[0]++;
+
+	vector<double> delX; 
+	vector<double> delY;
 
 	//Первая строка таблицы - наименование столбцов (для красивого оформления)   
 	cout << setw(4) << "k" << " | " << "A" << " " << "B" << " | "; 
@@ -403,8 +421,14 @@ void main()
 		//Результаты БР метода      
 		if (c <= 0.10)
 		{ 
-			cout << "min (1/k)v- = " << a << endl;             cout << "max (1/k)V_ = " << b << endl;             cout << "Погрешность = " << c << endl;
-			cout << "Среднее арифметическое (цена игры) = " << (a + b) / 2.0 << endl;             i = k; k--; cx[A]--; cy[B]--;
+			cout << "min (1/k)v- = " << a << endl;      
+			cout << "max (1/k)V_ = " << b << endl;      
+			cout << "Погрешность = " << c << endl;
+			cout << "Среднее арифметическое (цена игры) = " << (a + b) / 2.0 << endl;   
+			i = k;
+			k--; 
+			cx[A]--;
+			cy[B]--;
 		}
 		if (c > 0.10)
 			k++;
