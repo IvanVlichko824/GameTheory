@@ -6,7 +6,7 @@
 using namespace std;
 
 
-//Функция транспонирования матрицы
+//Р¤СѓРЅРєС†РёСЏ С‚СЂР°РЅСЃРїРѕРЅРёСЂРѕРІР°РЅРёСЏ РјР°С‚СЂРёС†С‹
 template <typename T> void TransponMtx(T** matr, T** tMatr, int n) {
 	for (int i = 0; i < n; i++)
 		for (int j = 0; j < n; j++)
@@ -14,7 +14,7 @@ template <typename T> void TransponMtx(T** matr, T** tMatr, int n) {
 }
 
 
-//Функция освобождения памяти
+//Р¤СѓРЅРєС†РёСЏ РѕСЃРІРѕР±РѕР¶РґРµРЅРёСЏ РїР°РјСЏС‚Рё
 template <typename T> void FreeMem(T** matr, int n)
 {
 	for (int i = 0; i < n; i++)
@@ -23,7 +23,7 @@ template <typename T> void FreeMem(T** matr, int n)
 }
 
 
-//Функция заполнения матрицы
+//Р¤СѓРЅРєС†РёСЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ РјР°С‚СЂРёС†С‹
 template <typename T> void SetMtx(T** matr, vector<vector<int>> M, int n)
 {
 	for (int i = 0; i < n; i++)
@@ -34,7 +34,7 @@ template <typename T> void SetMtx(T** matr, vector<vector<int>> M, int n)
 }
 
 
-//Функция печати матрицы
+//Р¤СѓРЅРєС†РёСЏ РїРµС‡Р°С‚Рё РјР°С‚СЂРёС†С‹
 template <typename T> void PrintMtx(T** matr, int n)
 {
 	for (int i = 0; i < n; i++) {
@@ -45,7 +45,7 @@ template <typename T> void PrintMtx(T** matr, int n)
 }
 
 
-//Функция вычеркивания строки и столбца
+//Р¤СѓРЅРєС†РёСЏ РІС‹С‡РµСЂРєРёРІР°РЅРёСЏ СЃС‚СЂРѕРєРё Рё СЃС‚РѕР»Р±С†Р°
 void Get_matr(int** matr, int n, int** temp_matr, int indRow, int indCol)
 {
 	int ki = 0;
@@ -63,13 +63,13 @@ void Get_matr(int** matr, int n, int** temp_matr, int indRow, int indCol)
 }
 
 
-//Функция вычисления определителя матрицы
+//Р¤СѓРЅРєС†РёСЏ РІС‹С‡РёСЃР»РµРЅРёСЏ РѕРїСЂРµРґРµР»РёС‚РµР»СЏ РјР°С‚СЂРёС†С‹
 int Det(int** matr, int n)
 {
-	int temp = 0;   //Временная переменная для хранения определителя
-	int k = 1;      //Степень
+	int temp = 0;   //Р’СЂРµРјРµРЅРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РѕРїСЂРµРґРµР»РёС‚РµР»СЏ
+	int k = 1;      //РЎС‚РµРїРµРЅСЊ
 	if (n < 1) {
-		cout << "Ошибка ввода: некорректный размер матрицы" << endl;
+		cout << "РћС€РёР±РєР° РІРІРѕРґР°: РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЂР°Р·РјРµСЂ РјР°С‚СЂРёС†С‹" << endl;
 		return 0;
 	}
 	else if (n == 1)
@@ -92,7 +92,7 @@ int Det(int** matr, int n)
 }
 
 
-void matrFill(vector<vector<int>> &M, int n) { //Случайное заполнение матриц
+void matrFill(vector<vector<int>> &M, int n) { //РЎР»СѓС‡Р°Р№РЅРѕРµ Р·Р°РїРѕР»РЅРµРЅРёРµ РјР°С‚СЂРёС†
 	for (int i = 0; i < n; i++) {
 		vector<int> temp;
 		for (int j = 0; j < n; j++) {
@@ -127,7 +127,7 @@ void bimatrFill(vector<vector<int>> &TA, vector<vector<int>> &TB, int n) {
 
 
 
-void matrZeroFill(vector<vector<int>>& A, vector<vector<int>>& B, int n) { //Создание матриц для нахождения пересечения множеств 
+void matrZeroFill(vector<vector<int>>& A, vector<vector<int>>& B, int n) { //РЎРѕР·РґР°РЅРёРµ РјР°С‚СЂРёС† РґР»СЏ РЅР°С…РѕР¶РґРµРЅРёСЏ РїРµСЂРµСЃРµС‡РµРЅРёСЏ РјРЅРѕР¶РµСЃС‚РІ 
 	for (int i = 0; i < n; i++) {
 		vector<int> temp;
 		for (int j = 0; j < n; j++) {
@@ -139,7 +139,7 @@ void matrZeroFill(vector<vector<int>>& A, vector<vector<int>>& B, int n) { //Соз
 }
 
 
-void matrPrint(vector<vector<int>> A, vector<vector<int>> B, int n) { //Вывод матрицы стратегий двух игроков
+void matrPrint(vector<vector<int>> A, vector<vector<int>> B, int n) { //Р’С‹РІРѕРґ РјР°С‚СЂРёС†С‹ СЃС‚СЂР°С‚РµРіРёР№ РґРІСѓС… РёРіСЂРѕРєРѕРІ
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
@@ -150,7 +150,7 @@ void matrPrint(vector<vector<int>> A, vector<vector<int>> B, int n) { //Вывод ма
 }
 
 
-int checkMaxStr(vector<vector<int>> M, int n, int x) { //Поиск максимума по строке
+int checkMaxStr(vector<vector<int>> M, int n, int x) { //РџРѕРёСЃРє РјР°РєСЃРёРјСѓРјР° РїРѕ СЃС‚СЂРѕРєРµ
 	int max = -100;
 	int m;
 	int unique = 0;
@@ -171,7 +171,7 @@ int checkMaxStr(vector<vector<int>> M, int n, int x) { //Поиск максимума по стро
 	for (int j = 0; j < n; j++) {
 
 
-		if (M[x][j] == max) { //Проверка на уникальность максимума
+		if (M[x][j] == max) { //РџСЂРѕРІРµСЂРєР° РЅР° СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚СЊ РјР°РєСЃРёРјСѓРјР°
 			unique++;
 		}
 
@@ -180,14 +180,14 @@ int checkMaxStr(vector<vector<int>> M, int n, int x) { //Поиск максимума по стро
 
 
 	if (unique > 1) {
-		//cout << "Для строки " << x + 1 << " уникальность максимума не достигнута (" << max << ")" << endl;
+		//cout << "Р”Р»СЏ СЃС‚СЂРѕРєРё " << x + 1 << " СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚СЊ РјР°РєСЃРёРјСѓРјР° РЅРµ РґРѕСЃС‚РёРіРЅСѓС‚Р° (" << max << ")" << endl;
 		return n;
 	}
 	return m;
 }
 
 
-int checkMaxStl(vector<vector<int>> M, int n, int x) { //Поиск максимума по столбцу
+int checkMaxStl(vector<vector<int>> M, int n, int x) { //РџРѕРёСЃРє РјР°РєСЃРёРјСѓРјР° РїРѕ СЃС‚РѕР»Р±С†Сѓ
 	int max = -100;
 	int m;
 	int unique = 0;
@@ -207,7 +207,7 @@ int checkMaxStl(vector<vector<int>> M, int n, int x) { //Поиск максимума по стол
 	for (int j = 0; j < n; j++) {
 
 
-		if (M[j][x] == max) { //Проверка на уникальность максимума
+		if (M[j][x] == max) { //РџСЂРѕРІРµСЂРєР° РЅР° СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚СЊ РјР°РєСЃРёРјСѓРјР°
 			unique++;
 		}
 
@@ -215,7 +215,7 @@ int checkMaxStl(vector<vector<int>> M, int n, int x) { //Поиск максимума по стол
 	}
 
 	if (unique > 1) {
-		//cout << "Для столбца " << x + 1 << " уникальность максимума не достигнута (" << max << ")" << endl;
+		//cout << "Р”Р»СЏ СЃС‚РѕР»Р±С†Р° " << x + 1 << " СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚СЊ РјР°РєСЃРёРјСѓРјР° РЅРµ РґРѕСЃС‚РёРіРЅСѓС‚Р° (" << max << ")" << endl;
 		return n;
 	}
 
@@ -239,12 +239,12 @@ void nashCheck(vector<vector<int>> A, vector<vector<int>> B, vector<vector<int>>
 
 	for (int i = 0; i < n; i++) {
 		if (checkMaxStl(A, n, i) != n) {
-			//cout << "Макс. в столбце " << i + 1 << " для игрока А: " << A[checkMaxStl(A, n, i)][i] << endl;
+			//cout << "РњР°РєСЃ. РІ СЃС‚РѕР»Р±С†Рµ " << i + 1 << " РґР»СЏ РёРіСЂРѕРєР° Рђ: " << A[checkMaxStl(A, n, i)][i] << endl;
 			nash[checkMaxStl(A, n, i)][i]++;
 		}
 
 		if (checkMaxStr(B, n, i) != n) {
-			//cout << "Макс. в строке " << i + 1 << " для игрока В: " << B[i][checkMaxStr(B, n, i)] << endl;
+			//cout << "РњР°РєСЃ. РІ СЃС‚СЂРѕРєРµ " << i + 1 << " РґР»СЏ РёРіСЂРѕРєР° Р’: " << B[i][checkMaxStr(B, n, i)] << endl;
 			nash[i][checkMaxStr(B, n, i)]++;
 		}
 
@@ -261,7 +261,7 @@ void nashCheck(vector<vector<int>> A, vector<vector<int>> B, vector<vector<int>>
 	}
 
 
-	cout << "Равновесие Нэша: " << endl;
+	cout << "Р Р°РІРЅРѕРІРµСЃРёРµ РќСЌС€Р°: " << endl;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
 			if (nash[i][j] == 2) cout << "(" << setw(3) << A[i][j] << ", " << setw(3) << B[i][j] << ") " << endl;
@@ -281,7 +281,7 @@ void nashCheck(vector<vector<int>> A, vector<vector<int>> B, vector<vector<int>>
 
 
 void matrExamples(vector<vector<int>> &Pa, vector<vector<int>> &Sa, vector<vector<int>> &Da,
-	vector<vector<int>> &Pb, vector<vector<int>> &Sb, vector<vector<int>> &Db) { //Заполнение матриц-примеров
+	vector<vector<int>> &Pb, vector<vector<int>> &Sb, vector<vector<int>> &Db) { //Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°С‚СЂРёС†-РїСЂРёРјРµСЂРѕРІ
 	for (int i = 0; i < 2; i++) {
 
 		vector<int> temp;
@@ -373,7 +373,7 @@ void paretoCheck(vector<vector<int>> A, vector<vector<int>> B, vector<vector<int
 	}
 
 
-	cout << "Оптимальные по Парето: " << endl;
+	cout << "РћРїС‚РёРјР°Р»СЊРЅС‹Рµ РїРѕ РџР°СЂРµС‚Рѕ: " << endl;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
 			if (pareto[i][j] == 0) cout << "(" << setw(3) << A[i][j] << ", " << setw(3) << B[i][j] << ") " << endl;
@@ -416,10 +416,10 @@ void findCol(vector<vector<int>> A, vector<vector<int>> B, vector<vector<int>> t
 
 
 	if (c == 0) {
-		cout << "Нет пересечения множеств" << endl;
+		cout << "РќРµС‚ РїРµСЂРµСЃРµС‡РµРЅРёСЏ РјРЅРѕР¶РµСЃС‚РІ" << endl;
 	}
 	else {
-		cout << "Пересечение:" << endl;
+		cout << "РџРµСЂРµСЃРµС‡РµРЅРёРµ:" << endl;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (col[i][j] == 1) {
@@ -529,76 +529,76 @@ int main()
 {
 	srand(unsigned(time(0)));
 	setlocale(0, "");
-	cout << "================== Задание 1 ==================" << endl;
+	cout << "================== Р—Р°РґР°РЅРёРµ 1 ==================" << endl;
 	int n = 10;
 	vector<vector<int>> A; 
-	vector<vector<int>> B; //Матрицы стратегий игроков А и В
+	vector<vector<int>> B; //РњР°С‚СЂРёС†С‹ СЃС‚СЂР°С‚РµРіРёР№ РёРіСЂРѕРєРѕРІ Рђ Рё Р’
 	vector<vector<int>> PA, PB, SA, SB, DA, DB, tA, tB, tNas, tPar;
 
 
 	matrFill(A, n);
-	matrFill(B, n); //Случайное заполнение матриц стратегий игроков А и В
-	matrPrint(A, B, n); //Вывод матрицы стратегий игроков А и В
+	matrFill(B, n); //РЎР»СѓС‡Р°Р№РЅРѕРµ Р·Р°РїРѕР»РЅРµРЅРёРµ РјР°С‚СЂРёС† СЃС‚СЂР°С‚РµРіРёР№ РёРіСЂРѕРєРѕРІ Рђ Рё Р’
+	matrPrint(A, B, n); //Р’С‹РІРѕРґ РјР°С‚СЂРёС†С‹ СЃС‚СЂР°С‚РµРіРёР№ РёРіСЂРѕРєРѕРІ Рђ Рё Р’
 
 
-	matrZeroFill(tNas, tPar, n); //Создание матриц для нахождения пересечения множеств
+	matrZeroFill(tNas, tPar, n); //РЎРѕР·РґР°РЅРёРµ РјР°С‚СЂРёС† РґР»СЏ РЅР°С…РѕР¶РґРµРЅРёСЏ РїРµСЂРµСЃРµС‡РµРЅРёСЏ РјРЅРѕР¶РµСЃС‚РІ
 
 
-	cout << endl << "----------- Поиск равновесия Нэша -----------" << endl;
+	cout << endl << "----------- РџРѕРёСЃРє СЂР°РІРЅРѕРІРµСЃРёСЏ РќСЌС€Р° -----------" << endl;
 	nashCheck(A, B, tNas, n);
-	cout << endl << "---------- Оптимальность по Парето ----------" << endl;
+	cout << endl << "---------- РћРїС‚РёРјР°Р»СЊРЅРѕСЃС‚СЊ РїРѕ РџР°СЂРµС‚Рѕ ----------" << endl;
 	paretoCheck(A, B, tPar, n);
-	cout << endl << "---------- Нахождение пересечений ----------" << endl;
+	cout << endl << "---------- РќР°С…РѕР¶РґРµРЅРёРµ РїРµСЂРµСЃРµС‡РµРЅРёР№ ----------" << endl;
 	findCol(A, B, tNas, tPar, n);
 
 
-	cout << endl << "====== Проверка алгоритмов на примерах ======" << endl;
+	cout << endl << "====== РџСЂРѕРІРµСЂРєР° Р°Р»РіРѕСЂРёС‚РјРѕРІ РЅР° РїСЂРёРјРµСЂР°С… ======" << endl;
 	matrExamples(PA, SA, DA, PB, SB, DB);
 
-	cout << endl << "==== Перекресток (с разными отклонениями) ====" << endl;
+	cout << endl << "==== РџРµСЂРµРєСЂРµСЃС‚РѕРє (СЃ СЂР°Р·РЅС‹РјРё РѕС‚РєР»РѕРЅРµРЅРёСЏРјРё) ====" << endl;
 	matrPrint(PA, PB, 2);
-	cout << endl << "----------- Поиск равновесия Нэша -----------" << endl;
+	cout << endl << "----------- РџРѕРёСЃРє СЂР°РІРЅРѕРІРµСЃРёСЏ РќСЌС€Р° -----------" << endl;
 	nashCheck(PA, PB, tNas, 2);
-	cout << endl << "---------- Оптимальность по Парето ----------" << endl;
+	cout << endl << "---------- РћРїС‚РёРјР°Р»СЊРЅРѕСЃС‚СЊ РїРѕ РџР°СЂРµС‚Рѕ ----------" << endl;
 	paretoCheck(PA, PB, tPar, 2);
-	cout << endl << "---------- Нахождение пересечений ----------" << endl;
+	cout << endl << "---------- РќР°С…РѕР¶РґРµРЅРёРµ РїРµСЂРµСЃРµС‡РµРЅРёР№ ----------" << endl;
 	findCol(PA, PB, tNas, tPar, 2);
 
-	cout << endl << "=============== Семейный спор ===============" << endl;
+	cout << endl << "=============== РЎРµРјРµР№РЅС‹Р№ СЃРїРѕСЂ ===============" << endl;
 	matrPrint(SA, SB, 2);
-	cout << endl << "----------- Поиск равновесия Нэша -----------" << endl;
+	cout << endl << "----------- РџРѕРёСЃРє СЂР°РІРЅРѕРІРµСЃРёСЏ РќСЌС€Р° -----------" << endl;
 	nashCheck(SA, SB, tNas, 2);
-	cout << endl << "---------- Оптимальность по Парето ----------" << endl;
+	cout << endl << "---------- РћРїС‚РёРјР°Р»СЊРЅРѕСЃС‚СЊ РїРѕ РџР°СЂРµС‚Рѕ ----------" << endl;
 	paretoCheck(SA, SB, tPar, 2);
-	cout << endl << "---------- Нахождение пересечений ----------" << endl;
+	cout << endl << "---------- РќР°С…РѕР¶РґРµРЅРёРµ РїРµСЂРµСЃРµС‡РµРЅРёР№ ----------" << endl;
 	findCol(SA, SB, tNas, tPar, 2);
 
 
-	cout << endl << "=========== Дилемма заключенного ===========" << endl;
+	cout << endl << "=========== Р”РёР»РµРјРјР° Р·Р°РєР»СЋС‡РµРЅРЅРѕРіРѕ ===========" << endl;
 	matrPrint(DA, DB, 2);
-	cout << endl << "----------- Поиск равновесия Нэша -----------" << endl;
+	cout << endl << "----------- РџРѕРёСЃРє СЂР°РІРЅРѕРІРµСЃРёСЏ РќСЌС€Р° -----------" << endl;
 	nashCheck(DA, DB, tNas, 2);
-	cout << endl << "---------- Оптимальность по Парето ----------" << endl;
+	cout << endl << "---------- РћРїС‚РёРјР°Р»СЊРЅРѕСЃС‚СЊ РїРѕ РџР°СЂРµС‚Рѕ ----------" << endl;
 	paretoCheck(DA, DB, tPar, 2);
-	cout << endl << "---------- Нахождение пересечений ----------" << endl;
+	cout << endl << "---------- РќР°С…РѕР¶РґРµРЅРёРµ РїРµСЂРµСЃРµС‡РµРЅРёР№ ----------" << endl;
 	findCol(DA, DB, tNas, tPar, 2);
 
 
-	cout << endl << "=============== Задание 2 ==================" << endl;
+	cout << endl << "=============== Р—Р°РґР°РЅРёРµ 2 ==================" << endl;
 	bimatrFill(tA, tB, 2);
 	matrPrint(tA, tB, 2);
-	cout << endl << "----------- Поиск равновесия Нэша -----------" << endl;
+	cout << endl << "----------- РџРѕРёСЃРє СЂР°РІРЅРѕРІРµСЃРёСЏ РќСЌС€Р° -----------" << endl;
 	nashCheck(tA, tB, tNas, 2);
-	cout << endl << "--------- Нахождение обратных матриц ---------" << endl;
+	cout << endl << "--------- РќР°С…РѕР¶РґРµРЅРёРµ РѕР±СЂР°С‚РЅС‹С… РјР°С‚СЂРёС† ---------" << endl;
 
-	int det; n = 2; //Определитель и размер матрицы
+	int det; n = 2; //РћРїСЂРµРґРµР»РёС‚РµР»СЊ Рё СЂР°Р·РјРµСЂ РјР°С‚СЂРёС†С‹
 
 	int** matr = new int*[n]; 
-	int** matrb = new int*[n]; //Матрицы значений
+	int** matrb = new int*[n]; //РњР°С‚СЂРёС†С‹ Р·РЅР°С‡РµРЅРёР№
 	double** obr_matr = new double*[n];
-	double** obr_matrb = new double*[n]; //Обратные матрицы
+	double** obr_matrb = new double*[n]; //РћР±СЂР°С‚РЅС‹Рµ РјР°С‚СЂРёС†С‹
 	double** tobr_matr = new double*[n]; 
-	double** tobr_matrb = new double*[n]; //Транспонированные обратные матрицы
+	double** tobr_matrb = new double*[n]; //РўСЂР°РЅСЃРїРѕРЅРёСЂРѕРІР°РЅРЅС‹Рµ РѕР±СЂР°С‚РЅС‹Рµ РјР°С‚СЂРёС†С‹
 	for (int i = 0; i < n; i++) {
 		matr[i] = new int[n]; 
 		matrb[i] = new int[n];
@@ -608,10 +608,10 @@ int main()
 		tobr_matrb[i] = new double[n];
 	}
 	SetMtx(matr, tA, n); SetMtx(matrb, tB, n);
-	cout << "Матрица А: " << endl;
+	cout << "РњР°С‚СЂРёС†Р° Рђ: " << endl;
 	PrintMtx(matr, n);
 	det = Det(matr, n);
-	cout << "Определитель матрицы = " << det << endl;
+	cout << "РћРїСЂРµРґРµР»РёС‚РµР»СЊ РјР°С‚СЂРёС†С‹ = " << det << endl;
 	if (det) {
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
@@ -625,19 +625,19 @@ int main()
 			}
 		}
 	}
-	else cout << "Определитель матрицы равен 0 => матрица является вырожденной и обратной нет" << endl;
+	else cout << "РћРїСЂРµРґРµР»РёС‚РµР»СЊ РјР°С‚СЂРёС†С‹ СЂР°РІРµРЅ 0 => РјР°С‚СЂРёС†Р° СЏРІР»СЏРµС‚СЃСЏ РІС‹СЂРѕР¶РґРµРЅРЅРѕР№ Рё РѕР±СЂР°С‚РЅРѕР№ РЅРµС‚" << endl;
 
 
-	//Транспонирование матрицы
+	//РўСЂР°РЅСЃРїРѕРЅРёСЂРѕРІР°РЅРёРµ РјР°С‚СЂРёС†С‹
 	TransponMtx(obr_matr, tobr_matr, n);
-	//Печать обратной матрицы после транспонирования
-	cout << "Обратная матрица: " << endl;
+	//РџРµС‡Р°С‚СЊ РѕР±СЂР°С‚РЅРѕР№ РјР°С‚СЂРёС†С‹ РїРѕСЃР»Рµ С‚СЂР°РЅСЃРїРѕРЅРёСЂРѕРІР°РЅРёСЏ
+	cout << "РћР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
 	PrintMtx(tobr_matr, n);
 
-	cout << "Матрица В: " << endl;
+	cout << "РњР°С‚СЂРёС†Р° Р’: " << endl;
 	PrintMtx(matrb, n);
 	det = Det(matrb, n);
-	cout << "Определитель матрицы = " << det << endl;
+	cout << "РћРїСЂРµРґРµР»РёС‚РµР»СЊ РјР°С‚СЂРёС†С‹ = " << det << endl;
 	if (det) {
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
@@ -651,19 +651,19 @@ int main()
 			}
 		}
 	}
-	else cout << "Определитель матрицы равен 0 => матрица является вырожденной и обратной нет" << endl;
+	else cout << "РћРїСЂРµРґРµР»РёС‚РµР»СЊ РјР°С‚СЂРёС†С‹ СЂР°РІРµРЅ 0 => РјР°С‚СЂРёС†Р° СЏРІР»СЏРµС‚СЃСЏ РІС‹СЂРѕР¶РґРµРЅРЅРѕР№ Рё РѕР±СЂР°С‚РЅРѕР№ РЅРµС‚" << endl;
 
 
-	//Транспонирование матрицы
+	//РўСЂР°РЅСЃРїРѕРЅРёСЂРѕРІР°РЅРёРµ РјР°С‚СЂРёС†С‹
 	TransponMtx(obr_matrb, tobr_matrb, n);
-	//Печать обратной матрицы после транспонирования
-	cout << "Обратная матрица: " << endl;
+	//РџРµС‡Р°С‚СЊ РѕР±СЂР°С‚РЅРѕР№ РјР°С‚СЂРёС†С‹ РїРѕСЃР»Рµ С‚СЂР°РЅСЃРїРѕРЅРёСЂРѕРІР°РЅРёСЏ
+	cout << "РћР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
 	PrintMtx(tobr_matrb, n);
 
 	FindMtx(obr_matrb, n);
 	FindMty(obr_matr, n);
 
-	//Освобождение памяти
+	//РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 	FreeMem(tobr_matr, n);
 	FreeMem(matr, n);
 	FreeMem(obr_matr, n);
