@@ -4,7 +4,7 @@
 using namespace std;
 const double M_PI = 3.14;
 
-//Класс тройного вектора
+//РљР»Р°СЃСЃ С‚СЂРѕР№РЅРѕРіРѕ РІРµРєС‚РѕСЂР°
 class Vec3
 {
 protected:
@@ -17,13 +17,13 @@ public:
 	{}
 };
 
-//Функция выдающая случайное double число
+//Р¤СѓРЅРєС†РёСЏ РІС‹РґР°СЋС‰Р°СЏ СЃР»СѓС‡Р°Р№РЅРѕРµ double С‡РёСЃР»Рѕ
 double random(double min, double max)
 {
 	return (double)(rand()) / RAND_MAX * (max - min) + min;
 }
 
-//Функция рассчета расстояния между двумя точками в пространстве
+//Р¤СѓРЅРєС†РёСЏ СЂР°СЃСЃС‡РµС‚Р° СЂР°СЃСЃС‚РѕСЏРЅРёСЏ РјРµР¶РґСѓ РґРІСѓРјСЏ С‚РѕС‡РєР°РјРё РІ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ
 double ras(double x1, double y1, double z1, double x2, double y2, double z2) {
 	return pow(pow((x2 - x1), 2) + pow((y2 - y1), 2) + pow((z2 - z1), 2), 0.5);
 }
@@ -38,8 +38,8 @@ int rasall(double x, double y, double z, vector<Vec3> v, double e) {
 	return ok;
 }
 
-//Функция расставления num_points точек равномерно на сфере (единичного радиуса в 0)
-//Метод золотого сечения
+//Р¤СѓРЅРєС†РёСЏ СЂР°СЃСЃС‚Р°РІР»РµРЅРёСЏ num_points С‚РѕС‡РµРє СЂР°РІРЅРѕРјРµСЂРЅРѕ РЅР° СЃС„РµСЂРµ (РµРґРёРЅРёС‡РЅРѕРіРѕ СЂР°РґРёСѓСЃР° РІ 0)
+//РњРµС‚РѕРґ Р·РѕР»РѕС‚РѕРіРѕ СЃРµС‡РµРЅРёСЏ
 vector<Vec3> fibonacci(const int num_points) {
 	vector<Vec3> vectors;
 	vectors.reserve(num_points);
@@ -65,17 +65,17 @@ int main()
 {
 	srand((unsigned)time(NULL));
 	setlocale(0, "");
-	vector<Vec3> v3; //Вектор координат ловящих точек
+	vector<Vec3> v3; //Р’РµРєС‚РѕСЂ РєРѕРѕСЂРґРёРЅР°С‚ Р»РѕРІСЏС‰РёС… С‚РѕС‡РµРє
 	int n, t;
 	double x, y, z, e, c;
-	cout << "Введите кол-во точек: "; cin >> n; cout << endl;
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ С‚РѕС‡РµРє: "; cin >> n; cout << endl;
 
 	x = 10.0;
 	y = 5.0;
 	z = 5.0;
-	e = 1.0; //Радиус ловящих сфер
-	c = 0.001; //Точность для работы с double
-	t = 5000000; //Кол-во экспериментов
+	e = 1.0; //Р Р°РґРёСѓСЃ Р»РѕРІСЏС‰РёС… СЃС„РµСЂ
+	c = 0.001; //РўРѕС‡РЅРѕСЃС‚СЊ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ double
+	t = 5000000; //РљРѕР»-РІРѕ СЌРєСЃРїРµСЂРёРјРµРЅС‚РѕРІ
 
 	v3 = fibonacci(n);
 	cout << setw(9) << setprecision(3) << "X " << setw(9) << "Y " << setw(9) << "Z" << endl;
@@ -87,14 +87,14 @@ int main()
 	cout << endl;
 	cout << "----------------------------------------------" << endl;
 
-	vector<Vec3> par; //Вектор координат точек, спроецированных на поверхность параллелепипеда со сферы
+	vector<Vec3> par; //Р’РµРєС‚РѕСЂ РєРѕРѕСЂРґРёРЅР°С‚ С‚РѕС‡РµРє, СЃРїСЂРѕРµС†РёСЂРѕРІР°РЅРЅС‹С… РЅР° РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР° СЃРѕ СЃС„РµСЂС‹
 
-	//Проецирование равномерно расставленных точек с поверхности сферы на поверхность параллелепипеда
+	//РџСЂРѕРµС†РёСЂРѕРІР°РЅРёРµ СЂР°РІРЅРѕРјРµСЂРЅРѕ СЂР°СЃСЃС‚Р°РІР»РµРЅРЅС‹С… С‚РѕС‡РµРє СЃ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё СЃС„РµСЂС‹ РЅР° РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
 	for (int i = 0; i < n; i++) {
 		double cx, cy, cz;
 		cx = 1; cy = 1; cz = 1;
 
-		if ((v3[i].x < 0) && (v3[i].y < 0) && (v3[i].z < 0)) { //Случай < < < 000
+		if ((v3[i].x < 0) && (v3[i].y < 0) && (v3[i].z < 0)) { //РЎР»СѓС‡Р°Р№ < < < 000
 			double xtemp, ytemp, ztemp;
 			xtemp = v3[i].x; ytemp = v3[i].y; ztemp = v3[i].z;
 
@@ -107,7 +107,7 @@ int main()
 			par.emplace_back(xtemp, ytemp, ztemp);
 		}
 
-		if ((v3[i].x < 0) && (v3[i].y < 0) && (v3[i].z > 0)) { //Случай < < > 001
+		if ((v3[i].x < 0) && (v3[i].y < 0) && (v3[i].z > 0)) { //РЎР»СѓС‡Р°Р№ < < > 001
 			double xtemp, ytemp, ztemp;
 			xtemp = v3[i].x; ytemp = v3[i].y; ztemp = v3[i].z;
 
@@ -120,7 +120,7 @@ int main()
 			par.emplace_back(xtemp, ytemp, ztemp);
 		}
 
-		if ((v3[i].x < 0) && (v3[i].y > 0) && (v3[i].z < 0)) { //Случай < > < 010
+		if ((v3[i].x < 0) && (v3[i].y > 0) && (v3[i].z < 0)) { //РЎР»СѓС‡Р°Р№ < > < 010
 			double xtemp, ytemp, ztemp;
 			xtemp = v3[i].x; ytemp = v3[i].y; ztemp = v3[i].z;
 
@@ -133,7 +133,7 @@ int main()
 			par.emplace_back(xtemp, ytemp, ztemp);
 		}
 
-		if ((v3[i].x < 0) && (v3[i].y > 0) && (v3[i].z > 0)) { //Случай < > > 011
+		if ((v3[i].x < 0) && (v3[i].y > 0) && (v3[i].z > 0)) { //РЎР»СѓС‡Р°Р№ < > > 011
 			double xtemp, ytemp, ztemp;
 			xtemp = v3[i].x; ytemp = v3[i].y; ztemp = v3[i].z;
 
@@ -146,7 +146,7 @@ int main()
 			par.emplace_back(xtemp, ytemp, ztemp);
 		}
 
-		if ((v3[i].x > 0) && (v3[i].y < 0) && (v3[i].z < 0)) { //Случай > < < 100
+		if ((v3[i].x > 0) && (v3[i].y < 0) && (v3[i].z < 0)) { //РЎР»СѓС‡Р°Р№ > < < 100
 			double xtemp, ytemp, ztemp;
 			xtemp = v3[i].x; ytemp = v3[i].y; ztemp = v3[i].z;
 
@@ -160,7 +160,7 @@ int main()
 
 		}
 
-		if ((v3[i].x > 0) && (v3[i].y < 0) && (v3[i].z > 0)) { //Случай > < > 101
+		if ((v3[i].x > 0) && (v3[i].y < 0) && (v3[i].z > 0)) { //РЎР»СѓС‡Р°Р№ > < > 101
 			double xtemp, ytemp, ztemp;
 			xtemp = v3[i].x; ytemp = v3[i].y; ztemp = v3[i].z;
 
@@ -174,7 +174,7 @@ int main()
 
 		}
 
-		if ((v3[i].x > 0) && (v3[i].y > 0) && (v3[i].z < 0)) { //Случай > > < 110
+		if ((v3[i].x > 0) && (v3[i].y > 0) && (v3[i].z < 0)) { //РЎР»СѓС‡Р°Р№ > > < 110
 			double xtemp, ytemp, ztemp;
 			xtemp = v3[i].x; ytemp = v3[i].y; ztemp = v3[i].z;
 
@@ -187,7 +187,7 @@ int main()
 			par.emplace_back(xtemp, ytemp, ztemp);
 		}
 
-		if ((v3[i].x > 0) && (v3[i].y > 0) && (v3[i].z > 0)) { //Случай > > > 111
+		if ((v3[i].x > 0) && (v3[i].y > 0) && (v3[i].z > 0)) { //РЎР»СѓС‡Р°Р№ > > > 111
 			double xtemp, ytemp, ztemp;
 			xtemp = v3[i].x; ytemp = v3[i].y; ztemp = v3[i].z;
 
@@ -203,15 +203,15 @@ int main()
 	}
 
 	cout << "----------------" << endl;
-	vector<Vec3> pos; //Все места куда попадает случайно точка
+	vector<Vec3> pos; //Р’СЃРµ РјРµСЃС‚Р° РєСѓРґР° РїРѕРїР°РґР°РµС‚ СЃР»СѓС‡Р°Р№РЅРѕ С‚РѕС‡РєР°
 
-	//Кидание точки на поверхность параллелепипеда
+	//РљРёРґР°РЅРёРµ С‚РѕС‡РєРё РЅР° РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
 	for (int i = 0; i < t; i++) {
 		int rng, znak;
 		rng = 1 + rand() % 3;
 		znak = 1 + rand() % 2;
 
-		//Розыгрыш на какую грань попадет
+		//Р РѕР·С‹РіСЂС‹С€ РЅР° РєР°РєСѓСЋ РіСЂР°РЅСЊ РїРѕРїР°РґРµС‚
 		if (rng == 1) {
 			if (znak == 1) pos.emplace_back((x / 2.0), random(-y / 2.0, y / 2.0), random(-z / 2.0, z / 2.0));
 			if (znak == 2) pos.emplace_back((-x / 2.0), random(-y / 2.0, y / 2.0), random(-z / 2.0, z / 2.0));
@@ -229,13 +229,13 @@ int main()
 	}
 
 	double count = 0;
-	//Подсчет количества попаданий в сферы
+	//РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РїРѕРїР°РґР°РЅРёР№ РІ СЃС„РµСЂС‹
 	for (int i = 0; i < t; i++) {
 		if (rasall(pos[i].x, pos[i].y, pos[i].z, par, e) == 1) {
 			count++;
 		}
 	}
 
-	cout << endl << "Цена игры = " << (double)count / (double)t << endl;
+	cout << endl << "Р¦РµРЅР° РёРіСЂС‹ = " << (double)count / (double)t << endl;
 	system("Pause");
 }
